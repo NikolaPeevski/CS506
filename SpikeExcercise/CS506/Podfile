@@ -6,7 +6,19 @@ target 'CS506' do
   use_frameworks!
 
   # Pods for CS506
+	# TODO: Clean this mess later
 	pod 'Firebase/Core'
+	pod 'Firebase/AdMob'
+	pod 'Firebase/Analytics'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Crash'
+	pod 'Firebase/Database'
+	pod 'Firebase/DynamicLinks'
+#	pod 'Firebase/Invites'
+	pod 'Firebase/Messaging'
+	pod 'Firebase/Performance'
+	pod 'Firebase/RemoteConfig'
+	pod 'Firebase/Storage'
   target 'CS506Tests' do
     inherit! :search_paths
     # Pods for testing

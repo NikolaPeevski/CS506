@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4E67DB221F515C00AE8179 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E67DA221F515C00AE8179 /* StartViewController.swift */; };
+		1B4E67DF221F527600AE8179 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E67DE221F527600AE8179 /* LoginViewController.swift */; };
+		1B4E67E1221F528800AE8179 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E67E0221F528800AE8179 /* SignUpViewController.swift */; };
+		1B4E67E3221F529300AE8179 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E67E2221F529300AE8179 /* HomeViewController.swift */; };
+		1B77D3E8221F8C2C003A2F4C /* databaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B77D3E7221F8C2C003A2F4C /* databaseManager.swift */; };
 		1B83395C221E0CE500B0C075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B83395B221E0CE500B0C075 /* GoogleService-Info.plist */; };
 		1B83395D221E0CE500B0C075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B83395B221E0CE500B0C075 /* GoogleService-Info.plist */; };
 		1B83395E221E0CE500B0C075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B83395B221E0CE500B0C075 /* GoogleService-Info.plist */; };
@@ -42,6 +47,11 @@
 /* Begin PBXFileReference section */
 		00EB962AE7826865A4C9EC64 /* Pods_CS506Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS506Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		028B05CA8CE683AF776E253A /* Pods-CS506Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS506Tests.debug.xcconfig"; path = "Target Support Files/Pods-CS506Tests/Pods-CS506Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		1B4E67DA221F515C00AE8179 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		1B4E67DE221F527600AE8179 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1B4E67E0221F528800AE8179 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1B4E67E2221F529300AE8179 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1B77D3E7221F8C2C003A2F4C /* databaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseManager.swift; sourceTree = "<group>"; };
 		1B83395B221E0CE500B0C075 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1BF3D5252214D1DB001B82E4 /* CS506.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS506.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF3D5282214D1DB001B82E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +103,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B4E67DD221F526100AE8179 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B4E67DA221F515C00AE8179 /* StartViewController.swift */,
+				1B4E67DE221F527600AE8179 /* LoginViewController.swift */,
+				1B4E67E0221F528800AE8179 /* SignUpViewController.swift */,
+				1B4E67E2221F529300AE8179 /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		1BF3D51C2214D1DB001B82E4 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +139,7 @@
 		1BF3D5272214D1DB001B82E4 /* CS506 */ = {
 			isa = PBXGroup;
 			children = (
+				1B4E67DD221F526100AE8179 /* ViewControllers */,
 				1B83395B221E0CE500B0C075 /* GoogleService-Info.plist */,
 				1BF3D5282214D1DB001B82E4 /* AppDelegate.swift */,
 				1BF3D52A2214D1DB001B82E4 /* ViewController.swift */,
@@ -125,6 +147,7 @@
 				1BF3D52F2214D1DD001B82E4 /* Assets.xcassets */,
 				1BF3D5312214D1DD001B82E4 /* LaunchScreen.storyboard */,
 				1BF3D5342214D1DD001B82E4 /* Info.plist */,
+				1B77D3E7221F8C2C003A2F4C /* databaseManager.swift */,
 			);
 			path = CS506;
 			sourceTree = "<group>";
@@ -157,7 +180,6 @@
 				ABADE105F4FFCB74BCFEA16F /* Pods-CS506UITests.debug.xcconfig */,
 				E47A233A8FFE4641A6F3F28B /* Pods-CS506UITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -336,14 +358,22 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CS506/Pods-CS506-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,8 +432,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B77D3E8221F8C2C003A2F4C /* databaseManager.swift in Sources */,
+				1B4E67DF221F527600AE8179 /* LoginViewController.swift in Sources */,
 				1BF3D52B2214D1DB001B82E4 /* ViewController.swift in Sources */,
 				1BF3D5292214D1DB001B82E4 /* AppDelegate.swift in Sources */,
+				1B4E67DB221F515C00AE8179 /* StartViewController.swift in Sources */,
+				1B4E67E1221F528800AE8179 /* SignUpViewController.swift in Sources */,
+				1B4E67E3221F529300AE8179 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
