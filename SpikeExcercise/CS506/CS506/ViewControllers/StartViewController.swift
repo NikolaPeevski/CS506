@@ -10,10 +10,14 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class StartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class StartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     var pickerDataSource = [String]();
     var lastPerformArgument: NSString? = nil
+    var tableDataSource = [String]();
+    
+    @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var pickerView: UIPickerView!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
@@ -24,28 +28,53 @@ class StartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-//        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.getCoursesBySemester), object: self.lastPerformArgument)
-//        self.lastPerformArgument = self.pickerDataSource[row] as NSString;
-//        self.perform(#selector(self.getCoursesBySemester(semester:)), with: lastPerformArgument, afterDelay: 1.0)
-
         return pickerDataSource[row];
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        getCoursesBySemester(semester: pickerDataSource[row]);
+        self.getCoursesBySemester(semester: pickerDataSource[row]);
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tableDataSource.count;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row);
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "cell")! //1.cellReuseIdentifier
+        
+        let text = self.tableDataSource[indexPath.row] //2.
+        
+        cell.textLabel?.text = text //3.
+        
+        return cell //4.
     }
     
     func getCoursesBySemester(semester: String) {
-        print("Doing things %@", semester);
+        //0 - Semester Year
+        //1 - Semester Term
+        let sem = semester.split(separator: " ");
+        DatabaseManager().getCourses(year: String(sem[1]), term: String(sem[0])) { (courses) in
+            print(courses.count)
+            for course in courses {
+                print(course);
+            }
+            self.tableDataSource = courses;
+            self.table.reloadData();
+            
+        };
     }
     
-    @IBOutlet weak var pickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad();
         self.pickerView.dataSource = self;
         self.pickerView.delegate = self;
+        self.table.dataSource = self;
+        self.table.delegate = self;
         DatabaseManager().getSemesters { (semesters) in
             self.pickerDataSource = semesters;
             print(self.pickerDataSource.count);
@@ -54,9 +83,6 @@ class StartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             if (!semesters[0].isEmpty) {
                 self.getCoursesBySemester(semester: semesters[0]);
                 }
-            for i in self.pickerDataSource {
-                print(i);
-            }
         };
 
     }

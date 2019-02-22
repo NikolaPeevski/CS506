@@ -27,10 +27,39 @@ class DatabaseManager {
         let semesterRef = DatabaseManager().getConnection().child("Semesters");
         semesterRef.observeSingleEvent(of: .value) { snapshot in
             print(snapshot.childrenCount) // I got the expected number of items
-            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+            for rest in snapshot.children.reversed() as! [DataSnapshot] {
                 if (rest.hasChildren()) {
-                    for child in rest.children.allObjects as! [DataSnapshot] {
+                    for child in rest.children.reversed() as! [DataSnapshot] {
                         res.append(String(format: "%@  %@",child.value as! String, rest.key));
+                    }
+                }
+            }
+            completion(res);
+        }
+    }
+    
+    func getCourses(year: String, term: String, completion: @escaping ([String]) -> Void) {
+        var res = [String]();
+        
+        let coursesRef = DatabaseManager().getConnection().child("Courses");
+        print(year, term, "blabla");
+        coursesRef.observeSingleEvent(of: .value) {
+            snapshot in
+            
+            for course in snapshot.children.allObjects as! [DataSnapshot] {
+                let taoughtIn = course.childSnapshot(forPath: "TaughtIn");
+                
+                if (taoughtIn.hasChildren()) {
+                    for cYear in taoughtIn.children.allObjects as! [DataSnapshot] {
+                        if (cYear.key == year) {
+                            if (cYear.hasChildren()) {
+                                for cTerm in cYear.children.allObjects as! [DataSnapshot] {
+                                    if ((cTerm.value as! String) == term) {
+                                        res.append(course.key);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
