@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B35F0552221A8BD004D4D0E /* courseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F0542221A8BD004D4D0E /* courseModel.swift */; };
+		1B35F0572221E10F004D4D0E /* assignmentModelMin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F0562221E10F004D4D0E /* assignmentModelMin.swift */; };
+		1B35F0592221E483004D4D0E /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F0582221E483004D4D0E /* StudentModel.swift */; };
+		1B35F05B2221E9B8004D4D0E /* AssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F05A2221E9B8004D4D0E /* AssignmentViewController.swift */; };
+		1B35F05D2221F774004D4D0E /* assignmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F05C2221F774004D4D0E /* assignmentModel.swift */; };
+		1B35F05F2221F847004D4D0E /* RatingMin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F05E2221F847004D4D0E /* RatingMin.swift */; };
+		1B35F06122230A64004D4D0E /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F06022230A64004D4D0E /* ReviewViewController.swift */; };
+		1B35F063222321AD004D4D0E /* AddSemesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F062222321AD004D4D0E /* AddSemesterViewController.swift */; };
+		1B35F065222321B8004D4D0E /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F064222321B8004D4D0E /* AddCourseViewController.swift */; };
+		1B35F067222321CD004D4D0E /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F066222321CD004D4D0E /* AddReviewViewController.swift */; };
+		1B35F06922232210004D4D0E /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F06822232210004D4D0E /* AddAssignmentViewController.swift */; };
+		1B35F06B2223248E004D4D0E /* StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B35F06A2223248E004D4D0E /* StorageKeys.swift */; };
 		1B4E67DB221F515C00AE8179 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E67DA221F515C00AE8179 /* StartViewController.swift */; };
 		1B4E67DF221F527600AE8179 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E67DE221F527600AE8179 /* LoginViewController.swift */; };
 		1B4E67E1221F528800AE8179 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E67E0221F528800AE8179 /* SignUpViewController.swift */; };
@@ -15,6 +27,10 @@
 		1B83395C221E0CE500B0C075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B83395B221E0CE500B0C075 /* GoogleService-Info.plist */; };
 		1B83395D221E0CE500B0C075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B83395B221E0CE500B0C075 /* GoogleService-Info.plist */; };
 		1B83395E221E0CE500B0C075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B83395B221E0CE500B0C075 /* GoogleService-Info.plist */; };
+		1BCFCE91222351E900253EB2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCFCE90222351E900253EB2 /* ProfileViewController.swift */; };
+		1BCFCE9322235B1A00253EB2 /* errorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCFCE9222235B1A00253EB2 /* errorHandling.swift */; };
+		1BCFCE972223B18800253EB2 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCFCE962223B18800253EB2 /* ProfileModel.swift */; };
+		1BE0A92822206ED300336E0A /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE0A92722206ED300336E0A /* CourseViewController.swift */; };
 		1BF3D5292214D1DB001B82E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3D5282214D1DB001B82E4 /* AppDelegate.swift */; };
 		1BF3D52B2214D1DB001B82E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3D52A2214D1DB001B82E4 /* ViewController.swift */; };
 		1BF3D52E2214D1DB001B82E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF3D52C2214D1DB001B82E4 /* Main.storyboard */; };
@@ -47,12 +63,28 @@
 /* Begin PBXFileReference section */
 		00EB962AE7826865A4C9EC64 /* Pods_CS506Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS506Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		028B05CA8CE683AF776E253A /* Pods-CS506Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS506Tests.debug.xcconfig"; path = "Target Support Files/Pods-CS506Tests/Pods-CS506Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		1B35F0542221A8BD004D4D0E /* courseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = courseModel.swift; sourceTree = "<group>"; };
+		1B35F0562221E10F004D4D0E /* assignmentModelMin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignmentModelMin.swift; sourceTree = "<group>"; };
+		1B35F0582221E483004D4D0E /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
+		1B35F05A2221E9B8004D4D0E /* AssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewController.swift; sourceTree = "<group>"; };
+		1B35F05C2221F774004D4D0E /* assignmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignmentModel.swift; sourceTree = "<group>"; };
+		1B35F05E2221F847004D4D0E /* RatingMin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingMin.swift; sourceTree = "<group>"; };
+		1B35F06022230A64004D4D0E /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		1B35F062222321AD004D4D0E /* AddSemesterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSemesterViewController.swift; sourceTree = "<group>"; };
+		1B35F064222321B8004D4D0E /* AddCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
+		1B35F066222321CD004D4D0E /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
+		1B35F06822232210004D4D0E /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
+		1B35F06A2223248E004D4D0E /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
 		1B4E67DA221F515C00AE8179 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		1B4E67DE221F527600AE8179 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1B4E67E0221F528800AE8179 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1B4E67E2221F529300AE8179 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1B77D3E7221F8C2C003A2F4C /* databaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseManager.swift; sourceTree = "<group>"; };
 		1B83395B221E0CE500B0C075 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1BCFCE90222351E900253EB2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1BCFCE9222235B1A00253EB2 /* errorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errorHandling.swift; sourceTree = "<group>"; };
+		1BCFCE962223B18800253EB2 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		1BE0A92722206ED300336E0A /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		1BF3D5252214D1DB001B82E4 /* CS506.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS506.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF3D5282214D1DB001B82E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BF3D52A2214D1DB001B82E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,13 +135,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B35F0532221A893004D4D0E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1B35F0542221A8BD004D4D0E /* courseModel.swift */,
+				1B35F0562221E10F004D4D0E /* assignmentModelMin.swift */,
+				1B35F0582221E483004D4D0E /* StudentModel.swift */,
+				1B35F05C2221F774004D4D0E /* assignmentModel.swift */,
+				1B35F05E2221F847004D4D0E /* RatingMin.swift */,
+				1BCFCE962223B18800253EB2 /* ProfileModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1B4E67DD221F526100AE8179 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				1B4E67DA221F515C00AE8179 /* StartViewController.swift */,
+				1B35F06022230A64004D4D0E /* ReviewViewController.swift */,
 				1B4E67DE221F527600AE8179 /* LoginViewController.swift */,
 				1B4E67E0221F528800AE8179 /* SignUpViewController.swift */,
 				1B4E67E2221F529300AE8179 /* HomeViewController.swift */,
+				1BE0A92722206ED300336E0A /* CourseViewController.swift */,
+				1B35F05A2221E9B8004D4D0E /* AssignmentViewController.swift */,
+				1B35F062222321AD004D4D0E /* AddSemesterViewController.swift */,
+				1B35F064222321B8004D4D0E /* AddCourseViewController.swift */,
+				1B35F066222321CD004D4D0E /* AddReviewViewController.swift */,
+				1B35F06822232210004D4D0E /* AddAssignmentViewController.swift */,
+				1BCFCE90222351E900253EB2 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -139,6 +192,7 @@
 		1BF3D5272214D1DB001B82E4 /* CS506 */ = {
 			isa = PBXGroup;
 			children = (
+				1B35F0532221A893004D4D0E /* Models */,
 				1B4E67DD221F526100AE8179 /* ViewControllers */,
 				1B83395B221E0CE500B0C075 /* GoogleService-Info.plist */,
 				1BF3D5282214D1DB001B82E4 /* AppDelegate.swift */,
@@ -148,6 +202,8 @@
 				1BF3D5312214D1DD001B82E4 /* LaunchScreen.storyboard */,
 				1BF3D5342214D1DD001B82E4 /* Info.plist */,
 				1B77D3E7221F8C2C003A2F4C /* databaseManager.swift */,
+				1B35F06A2223248E004D4D0E /* StorageKeys.swift */,
+				1BCFCE9222235B1A00253EB2 /* errorHandling.swift */,
 			);
 			path = CS506;
 			sourceTree = "<group>";
@@ -434,11 +490,27 @@
 			files = (
 				1B77D3E8221F8C2C003A2F4C /* databaseManager.swift in Sources */,
 				1B4E67DF221F527600AE8179 /* LoginViewController.swift in Sources */,
+				1B35F06122230A64004D4D0E /* ReviewViewController.swift in Sources */,
 				1BF3D52B2214D1DB001B82E4 /* ViewController.swift in Sources */,
+				1B35F05D2221F774004D4D0E /* assignmentModel.swift in Sources */,
+				1B35F06922232210004D4D0E /* AddAssignmentViewController.swift in Sources */,
 				1BF3D5292214D1DB001B82E4 /* AppDelegate.swift in Sources */,
+				1BCFCE9322235B1A00253EB2 /* errorHandling.swift in Sources */,
+				1B35F05F2221F847004D4D0E /* RatingMin.swift in Sources */,
+				1B35F0592221E483004D4D0E /* StudentModel.swift in Sources */,
+				1B35F06B2223248E004D4D0E /* StorageKeys.swift in Sources */,
+				1B35F05B2221E9B8004D4D0E /* AssignmentViewController.swift in Sources */,
 				1B4E67DB221F515C00AE8179 /* StartViewController.swift in Sources */,
+				1B35F065222321B8004D4D0E /* AddCourseViewController.swift in Sources */,
+				1BCFCE972223B18800253EB2 /* ProfileModel.swift in Sources */,
+				1B35F063222321AD004D4D0E /* AddSemesterViewController.swift in Sources */,
+				1B35F067222321CD004D4D0E /* AddReviewViewController.swift in Sources */,
+				1BE0A92822206ED300336E0A /* CourseViewController.swift in Sources */,
 				1B4E67E1221F528800AE8179 /* SignUpViewController.swift in Sources */,
+				1B35F0552221A8BD004D4D0E /* courseModel.swift in Sources */,
+				1BCFCE91222351E900253EB2 /* ProfileViewController.swift in Sources */,
 				1B4E67E3221F529300AE8179 /* HomeViewController.swift in Sources */,
+				1B35F0572221E10F004D4D0E /* assignmentModelMin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class AssignmentModelMin {
+    var assignmentID: String = "";
+    var assignmentName: String = "";
+    var studentId: String = "";
+    var studentName: String = "";
+    var averageScore: Double = 0;
+    
+    func getAssignmentName() -> String {
+        return String(format: "%@ %@", self.assignmentName, self.studentName);
+    }
+}

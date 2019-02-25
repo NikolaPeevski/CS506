@@ -1,24 +1,31 @@
-//
-//  StartViewController.swift
-//  CS506
-//
-//  Created by Nikola Peevski on 21/02/2019.
-//  Copyright © 2019 Nikola Peevski. All rights reserved.
-//
-
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
 
 class StartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     var pickerDataSource = [String]();
     var lastPerformArgument: NSString? = nil
     var tableDataSource = [String]();
+    var currentRow = 0;
+    var isLogged:Bool = false;
     
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var myProfileButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var loginbutton: UIButton!
+    @IBOutlet weak var addSemesterButton: UIButton!
+    @IBOutlet weak var addCourseButton: UIButton!
     
+    
+    @IBAction func logout(_ sender: Any) {
+        let defaults = UserDefaults.standard;
+        defaults.removeObject(forKey: StorageKeys.email);
+        defaults.removeObject(forKey: StorageKeys.userID);
+        self.performSegue(withIdentifier: "Reload", sender: self);
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
     }
@@ -32,6 +39,7 @@ class StartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.currentRow = row;
         self.getCoursesBySemester(semester: pickerDataSource[row]);
     }
     
@@ -40,28 +48,24 @@ class StartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row);
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "cell")! //1.cellReuseIdentifier
+        let cell = table.dequeueReusableCell(withIdentifier: "cell")!;
         
-        let text = self.tableDataSource[indexPath.row] //2.
+        let text = self.tableDataSource[indexPath.row];
         
-        cell.textLabel?.text = text //3.
+        cell.textLabel?.text = text;
         
-        return cell //4.
+        return cell;
     }
     
     func getCoursesBySemester(semester: String) {
-        //0 - Semester Year
-        //1 - Semester Term
+        
         let sem = semester.split(separator: " ");
         DatabaseManager().getCourses(year: String(sem[1]), term: String(sem[0])) { (courses) in
-            print(courses.count)
-            for course in courses {
-                print(course);
-            }
+            
             self.tableDataSource = courses;
             self.table.reloadData();
             
@@ -70,6 +74,19 @@ class StartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     
     override func viewDidLoad() {
+        
+        let defaults = UserDefaults.standard;
+        if let _ = defaults.string(forKey: StorageKeys.userID) {
+            self.loginbutton.isHidden = true;
+            self.isLogged = true;
+        } else {
+            self.myProfileButton.isHidden = true;
+            self.logoutButton.isHidden = true;
+            self.addCourseButton.isHidden = true;
+            self.addSemesterButton.isHidden = true;
+        }
+        
+        
         super.viewDidLoad();
         self.pickerView.dataSource = self;
         self.pickerView.delegate = self;
@@ -77,8 +94,6 @@ class StartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.table.delegate = self;
         DatabaseManager().getSemesters { (semesters) in
             self.pickerDataSource = semesters;
-            print(self.pickerDataSource.count);
-            //[pickerView.relo reloadAllComponents];
             self.pickerView.reloadAllComponents();
             if (!semesters[0].isEmpty) {
                 self.getCoursesBySemester(semester: semesters[0]);
@@ -87,15 +102,29 @@ class StartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if ((segue.destination as? CourseViewController) != nil) {
+        
+            let courseIndex = self.table.indexPathForSelectedRow;
+            
+            let courseViewController = segue.destination as! CourseViewController;
+            let course = CourseModel(courseName: self.tableDataSource[courseIndex!.row],
+                                     courseTerm: self.pickerDataSource[self.currentRow].split(separator: " ").map(String.init) );
+            courseViewController.currentCourse = course;
+            courseViewController.isLogged = self.isLogged;
+            self.table.deselectRow(at: courseIndex!, animated: true)
+        }
+        
+        if ((segue.destination as? AddCourseViewController) != nil) {
+            
+            
+            let acvc = segue.destination as! AddCourseViewController;
+            let course = CourseModel(courseName: "",
+                                     courseTerm: self.pickerDataSource[self.currentRow].split(separator: " ").map(String.init) );
+            acvc.course = course;
+        }
+
     }
-    */
 
 }

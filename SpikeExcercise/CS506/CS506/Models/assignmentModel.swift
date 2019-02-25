@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class AssignmentModel {
+    var assignmentID: String = "";
+    var assignmentName: String = "";
+    var studentId: String = "";
+    var studentName: String = "";
+    var averageScore: Double = 0;
+    var course: CourseModel = CourseModel(courseName: "", courseTerm: [String]());
+    var ratingsList: [RatingMin] = [RatingMin]();
+}

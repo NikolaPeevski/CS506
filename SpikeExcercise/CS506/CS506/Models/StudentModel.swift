@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class StudentModel {
+    var Name: String = "";
+    var LastName: String = "";
+    var id: String = "";
+}
