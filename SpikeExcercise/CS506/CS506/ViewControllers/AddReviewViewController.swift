@@ -10,7 +10,7 @@ class AddReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var assignment: AssignmentModel = AssignmentModel();
     var course: CourseModel = CourseModel(courseName: "", courseTerm: [String]());
     
-    let pickerData: [String] = ["A","AB","B","BC","C","CD","D","F"]
+    let pickerData: [String] = ["A","B","C","D","F"]
     var currentRow: Int = 0;
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

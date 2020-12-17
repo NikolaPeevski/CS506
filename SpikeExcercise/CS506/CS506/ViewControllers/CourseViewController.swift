@@ -84,7 +84,7 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
             group.notify(queue: .main) {
                 // do something here when loop finished
             
-            self.average.text?.append(String(format: "%.1f", self.currentCourse.average));
+            self.average.text?.append(String(format: "%.2f", self.currentCourse.average));
             self.average.reloadInputViews();
             self.table.reloadData();
             }

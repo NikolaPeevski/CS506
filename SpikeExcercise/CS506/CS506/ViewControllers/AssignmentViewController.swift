@@ -25,7 +25,7 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
     var isLogged: Bool = false;
     
     override func viewDidLoad() {
-        
+        print("Did load");
         super.viewDidLoad()
         
         var navigationArray: [UIViewController] = self.navigationController?.viewControllers ?? [UIViewController]()
@@ -79,10 +79,6 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
     func getRatings() {
         DatabaseManager().getRatings(year: currentAssignment.course.courseTerm[0], term: currentAssignment.course.courseTerm[1], course: currentAssignment.course.courseName, assignmentID: currentAssignment.assignmentID) {
             (ratings) in
-            
-            for i in ratings {
-                print(i.by);
-            }
             self.currentAssignment.ratingsList = ratings;
             
             let group = DispatchGroup();
@@ -95,13 +91,25 @@ class AssignmentViewController: UIViewController, UITableViewDelegate, UITableVi
                     group.leave();
                 }
             }
+            
+            group.enter();
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            
+                DatabaseManager().GetAssignmentAverage(assignment: self.currentAssignment) {
+                    (assignment) in
+                    self.currentAssignment = assignment;
+                    print(String(format: "%.2f", self.currentAssignment.averageScore));
+                    self.averageScore.text = String(String(format: "%.2f", self.currentAssignment.averageScore));
+                    group.leave();
+                }
+            }
+            
             group.notify(queue: .main) {
                 // do something here when loop finished
                 self.tableDataSource = self.currentAssignment.ratingsList;
                 self.table.reloadData();
             }
             print(ratings);
-            
         }
     }
     

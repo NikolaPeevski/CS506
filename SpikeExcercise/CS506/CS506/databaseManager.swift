@@ -92,7 +92,7 @@ class DatabaseManager {
                                                 _assignment.assignmentName = assignment.childSnapshot(forPath: "Name").value as! String;
                                                 _assignment.studentId = assignment.childSnapshot(forPath: "Student").value as! String;
                                                 _assignment.assignmentID = assignment.key;
-                                                _assignment.averageScore = assignment.childSnapshot(forPath: "Average").value as! Double;
+                                                _assignment.averageScore = Double(truncating: assignment.childSnapshot(forPath: "Average").value as!NSNumber);
 
                                                 res.assingmensList.append(_assignment);
                                         }
@@ -271,6 +271,20 @@ class DatabaseManager {
             profileRef.updateChildValues(profile);
             
             completion();
+        }
+    }
+    
+    func GetAssignmentAverage(assignment: AssignmentModel, completion: @escaping (AssignmentModel) -> Void) {
+        let connection = DatabaseManager().getConnection();
+        
+        let assignmentRef = connection.child((String(format:"Courses/%@/TaughtIn/%@/%@/Assignments/%@", assignment.course.courseName, assignment.course.courseTerm[0], assignment.course.courseTerm[1], assignment.assignmentID)));
+        
+        assignmentRef.observeSingleEvent(of: .value) {
+            (_assignment) in
+            assignment.averageScore = Double(truncating: _assignment.childSnapshot(forPath: "Average").value as!NSNumber);
+            
+            completion(assignment);
+            
         }
     }
 }
